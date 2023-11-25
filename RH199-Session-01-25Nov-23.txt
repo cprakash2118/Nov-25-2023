@@ -118,4 +118,40 @@ ALL Linux commands are inside:- (Bcoz - useradd/userdel/usermod all are commands
 		 ls -l /etc/fatab 
   
         man 5 passwd (It will open /etc/passswd file).
-		
+	
+
+### 
+Automation & customization:-
+Creating scripts and updating to "/bin" or "/sbin".
+
+ /bin/  or /usr/bin   -  
+ /sbin or /usr/sbin 
+ /usr/local/bin 
+ /usr/local/sbin
+#####################
+- Create dir - /ORG/{IT,ME,CSE,ECE}/{1st_year,2nd_year,3rd_year,4th_year}
+- copying file (touch file1_name.txt), file1_name.txt -> ECE 
+- copying file (touch file2_name.txt), file2_name.txt -> ECE 
+- copying file (touch file3_name.txt), file3_name.txt -> ECE 
+- copying file (touch file4_name.txt), file4_name.txt -> ECE 
+
+
+Use absolute Vs relative paths:-
+# mkdir -p /ORG/{IT,CSE,ME,ECE}/{1st_year,2nd_year,3rd_year,4th_year}
+# tree /ORG 
+# mkdir WORK 
+# cd WORK
+# pwd
+/root/WORK 
+# touch file{1..5}.txt 
+
+ 
+Absolute path - It alway start with "/"
+Relative path - It will not start with "/" 
+
+Relative path example:-
+# cp -rv file1.txt ../../ORG/IT/3rd_year/
+
+
+Absolute path - It alway start with "/"
+# cp -rv /home/root/file1.txt /ORG/IT/2ndy_year/
