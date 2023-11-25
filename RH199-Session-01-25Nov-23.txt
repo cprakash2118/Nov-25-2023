@@ -207,3 +207,8 @@ Password must be redhat, SHA512 algo,
 passwd user1 
 or
 echo "redhat" | passwd --stdin $user1
+#################################
+sudo access to group/user 
+sudo aceess to specific commands 
+sudo access w.r.t password/passwordless 
+sudo access w.r.t alias 
