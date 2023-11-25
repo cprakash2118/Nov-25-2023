@@ -79,6 +79,44 @@ Step 2) LOgin to other VMs/servers and verify
     
 https://www.kernel.org/
 #############################################################################
+### 
+Automation & customization:-
+Creating scripts and updating to "/bin" or "/sbin".
+
+ /bin/  or /usr/bin   -  
+ /sbin or /usr/sbin 
+ /usr/local/bin 
+ /usr/local/sbin
+#####################
+- Create dir - /ORG/{IT,ME,CSE,ECE}/{1st_year,2nd_year,3rd_year,4th_year}
+- copying file (touch file1_name.txt), file1_name.txt -> ECE 
+- copying file (touch file2_name.txt), file2_name.txt -> ECE 
+- copying file (touch file3_name.txt), file3_name.txt -> ECE 
+- copying file (touch file4_name.txt), file4_name.txt -> ECE 
+
+
+Use absolute Vs relative paths:-
+# mkdir -p /ORG/{IT,CSE,ME,ECE}/{1st_year,2nd_year,3rd_year,4th_year}
+# tree /ORG 
+# mkdir WORK 
+# cd WORK
+# pwd
+/root/WORK 
+# touch file{1..5}.txt 
+
+ 
+Absolute path - It alway start with "/"
+Relative path - It will not start with "/" 
+
+Relative path example:-
+# cp -rv file1.txt ../../ORG/IT/3rd_year/
+
+
+Absolute path - It alway start with "/"
+# cp -rv /home/root/file1.txt /ORG/IT/2ndy_year/
+
+
+####################
     
 ### User, Groups & Permissions:-
 User - (Admin=root, Normal-Users=student, system-user=apache)	
@@ -118,40 +156,54 @@ ALL Linux commands are inside:- (Bcoz - useradd/userdel/usermod all are commands
 		 ls -l /etc/fatab 
   
         man 5 passwd (It will open /etc/passswd file).
-	
+#####################################
 
-### 
-Automation & customization:-
-Creating scripts and updating to "/bin" or "/sbin".
+NOte: Group must be available on system before user create (If not then default same name of group will be created.
 
- /bin/  or /usr/bin   -  
- /sbin or /usr/sbin 
- /usr/local/bin 
- /usr/local/sbin
-#####################
-- Create dir - /ORG/{IT,ME,CSE,ECE}/{1st_year,2nd_year,3rd_year,4th_year}
-- copying file (touch file1_name.txt), file1_name.txt -> ECE 
-- copying file (touch file2_name.txt), file2_name.txt -> ECE 
-- copying file (touch file3_name.txt), file3_name.txt -> ECE 
-- copying file (touch file4_name.txt), file4_name.txt -> ECE 
+# Create normal user.
+  # useradd user1  
+  
+  /etc/passwd 
+  /etc/group 
+  /etc/shadow 
+  /home/user1  (home dir for user1)
+  /home/user1/.bash*  (User's profile file)
+  /var/spool/mail/user1   (mail file).
 
 
-Use absolute Vs relative paths:-
-# mkdir -p /ORG/{IT,CSE,ME,ECE}/{1st_year,2nd_year,3rd_year,4th_year}
-# tree /ORG 
-# mkdir WORK 
-# cd WORK
-# pwd
-/root/WORK 
-# touch file{1..5}.txt 
-
- 
-Absolute path - It alway start with "/"
-Relative path - It will not start with "/" 
-
-Relative path example:-
-# cp -rv file1.txt ../../ORG/IT/3rd_year/
+Groups:- 
+name=unixadm, GID=205151, user1-2 (Must be part of unixadm as 2ndary group.
+# Create normal user.
+  # useradd user1  
+  
+  /etc/passwd 
+  /etc/group 
+  /etc/shadow 
+  /home/user1  (home dir for user1)
+  /home/user1/.bash*  (User's profile file)
+  /var/spool/mail/user1   (mail file).
 
 
-Absolute path - It alway start with "/"
-# cp -rv /home/root/file1.txt /ORG/IT/2ndy_year/
+Groups:- 
+name=unixadm, GID=205151, user1-2 (Must be part of unixadm as 2ndary group.
+name=dbadm, GID=205152, user3 (Must be part of this group as 2ndary group.
+name=networkadm, GID=205153, user4 (Must be part of network as 2ndary group.
+name=middleware, GID=205154, user2 (Must be part of middleware as 2ndary group.
+
+Example:
+groupadd -g 205151 unixadm
+
+Users:-
+name=user1, UID=10451 , GID= 2055151
+name=user2  UID=10452 , GID= 2055152
+name=user3  UID=10453 , GID= 2055153 
+name=user4  UID=10454 , GID= 2055154
+
+Example:
+useradd -s /bin/bash -G 2055151 -C "2055151 - Group-name" -s /bin/bash user1 
+
+
+Password must be redhat, SHA512 algo, 
+passwd user1 
+or
+echo "redhat" | passwd --stdin $user1
