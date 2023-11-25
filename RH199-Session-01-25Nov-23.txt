@@ -11,6 +11,11 @@ https://rol.redhat.com  (Red Hat login ID / password).
 Lab - part 
 Resources - ebook download.
 
+
+
+(Press "ctrl + shift + "+" key  - Increase fount size)
+(Press "ctrl + "+" key  - Decrease  fount size) 
+
 ### 1-Orientation to the Classroom Environment:-
 1. User details:-
     student/student 
@@ -53,5 +58,64 @@ Step 2) LOgin to other VMs/servers and verify
 		# hostname -f 
 		
 		# nslookup classroom.example.com
-        # nslookup servera.lab.example.com 	 		
+        # nslookup servera.lab.example.com 	
+##########################################################
+- Linux (RHELv9 - server based OS) - it's an operating system.
+- What is OS?
+   s/w that manage h/w, s/w which act as an interface b/w hardware.
+- Why OS required ?
+   - Do achive optimum utilization (w.r.t Compute - CPU,Memory,Disk and other IO devices).
+   
+- Layout of OS.
+
+    user -> GUI -> CLI -> Kernel -> Hardware 
+	
+	User - (Admin=root, Normal-Users=student, system-user=apache)
+	GUI  - GNOME3, KDE, JDE & CDE etc 
+	CLI  - bash, tcsh, ksh, sh, cmd, powershell 
+	Kernel - Main core of an OS, It's a Low level program (Set of libs/bins).
+    Hardware - IBM Blade server, P services, Dell, HP, CIsco etc 
+               Server/Workstation/Desktop/Ldaptop 	
+    
+https://www.kernel.org/
+#############################################################################
+    
+### User, Groups & Permissions:-
+User - (Admin=root, Normal-Users=student, system-user=apache)	
+
+# login to system/server as root user.
+  - Login as admin and it's show "#" sign.
+  - root UID is 0
+  - also know as super user.
+
+# Created normal user.
+  # useradd user1   
+  /etc/passwd 
+  /etc/group 
+  /etc/shadow 
+  /home/user1  (home dir for user1)
+  /home/user1/.bash*  (User's profile file)
+  /var/spool/mail/user1   (mail file).
+
+  # usermod user1 
+   - MOdify/change the value.
+  # userdel -r user1  (All above entires/dir/files will be removed)
+  
+ALL Linux commands are inside:- (Bcoz - useradd/userdel/usermod all are commands).
+  /bin or /usr/bin    - For Normal user 
+  /sbin or /usr/sbin  - admin previliage users
+  
+  which command-name (This gives you the absolute path of the executable file).
+  # which pwd
+  /bin/pwd 
+  
+  all commands having manual pages 
+   1 - /bin   man pwd or man 1 pwd 
+   8 - /sbin  man useradd or man 8 useradd 
+   5 - file (system config files).
+         ls -l /etc/passwd
+		 ls -l /etc/shadow 
+		 ls -l /etc/fatab 
+  
+        man 5 passwd (It will open /etc/passswd file).
 		
