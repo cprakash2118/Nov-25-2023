@@ -1,0 +1,48 @@
+
+# RH199 - Training 
+# Product - Red Hat Eenterprise Linux version 9 (RHELv9).
+# Reference Link:-
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8
+
+
+# Login to Red Hat Labs.
+https://rol.redhat.com  (Red Hat login ID / password).
+Lab - part 
+Resources - ebook download.
+
+### 1-Orientation to the Classroom Environment:-
+1. User details:-
+    student/student 
+	root/redhat 
+   NOte: Above two accounts used for login to any server.
+
+2. Network details:-
+    N/w Name               N/w Range                 N/w-Domain 
+   student network         172.25.250.0/24         lab.example.com 
+   classroom network       172.25.252.0/24         example.com
+   
+   
+3. Servers/VMs details:-
+   3.1. workstation.alb.example.com (RHELv9, GUI mode)
+        - Linux RHELv9 GUI, it act as jump server.
+   3.2. bastion.lab.example.com 
+        - It connect student & classroom network.
+   3.3. servera.lab.example.com   (RHELv9, CLI mode)
+   3.4. serverb.lab.example.com   (RHELv9, CLI mode)
+   3.5. classroom.example.com     (RHELv9, CLI mode)
+        material.example.com      (RHELv9, CLI mode)
+		content.example.com       (RHELv9, CLI mode)
+   
+   
+Step 1) Login to workstation as student user and verify workstation.
+        LOgin to other VMs/servers and verify 
+		Example:-
+		ssh root@servera -l root  
+        # hostname -s 
+		# hostname -d 
+		# hostname -f 
+		
+		# nslookup classroom.example.com
+        # nslookup servera.lab.example.com 		
+		
